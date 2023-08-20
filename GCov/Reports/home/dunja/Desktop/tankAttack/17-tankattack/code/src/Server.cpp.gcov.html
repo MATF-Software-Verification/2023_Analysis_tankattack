@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage_test.info - /home/dunja/Desktop/tankAttack/17-tankattack/code/src/Server.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../../../index.html">top level</a> - <a href="index.html">home/dunja/Desktop/tankAttack/17-tankattack/code/src</a> - Server.cpp<span style="font-size: 80%;"> (source / <a href="Server.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage_test.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">54</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2023-08-20 20:39:07</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">34</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : #include &quot;../include/Server.hpp&quot;</a>
+<a name="2"><span class="lineNum">       2 </span>                :            : #include &quot;../include/ServerWorker.hpp&quot;</a>
+<a name="3"><span class="lineNum">       3 </span>                :            : </a>
+<a name="4"><span class="lineNum">       4 </span>                :            : #include &lt;QThread&gt;</a>
+<a name="5"><span class="lineNum">       5 </span>                :            : #include &lt;functional&gt;</a>
+<a name="6"><span class="lineNum">       6 </span>                :            : #include &lt;QJsonDocument&gt;</a>
+<a name="7"><span class="lineNum">       7 </span>                :            : #include &lt;QJsonObject&gt;</a>
+<a name="8"><span class="lineNum">       8 </span>                :            : #include &lt;QJsonValue&gt;</a>
+<a name="9"><span class="lineNum">       9 </span>                :            : #include &lt;QTimer&gt;</a>
+<a name="10"><span class="lineNum">      10 </span>                :<span class="lineNoCov">          0 : Server::Server(QObject *parent)</span></a>
+<a name="11"><span class="lineNum">      11 </span>                :            :     : QTcpServer(parent)</a>
+<a name="12"><span class="lineNum">      12 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     , m_idealThreadCount(qMax(QThread::idealThreadCount(), 1))</span></a>
+<a name="13"><span class="lineNum">      13 </span>                :            : {</a>
+<a name="14"><span class="lineNum">      14 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     m_availableThreads.reserve(m_idealThreadCount);</span></a>
+<a name="15"><span class="lineNum">      15 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     m_threadsLoad.reserve(m_idealThreadCount);</span></a>
+<a name="16"><span class="lineNum">      16 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="17"><span class="lineNum">      17 </span>                :            : </a>
+<a name="18"><span class="lineNum">      18 </span>                :<span class="lineNoCov">          0 : Server::~Server()</span></a>
+<a name="19"><span class="lineNum">      19 </span>                :            : {</a>
+<a name="20"><span class="lineNum">      20 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     for (QThread *singleThread : m_availableThreads) {</span></a>
+<a name="21"><span class="lineNum">      21 </span>                :<span class="lineNoCov">          0 :         singleThread-&gt;quit();</span></a>
+<a name="22"><span class="lineNum">      22 </span>                :<span class="lineNoCov">          0 :         singleThread-&gt;wait();</span></a>
+<a name="23"><span class="lineNum">      23 </span>                :            :     }</a>
+<a name="24"><span class="lineNum">      24 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="25"><span class="lineNum">      25 </span>                :            : </a>
+<a name="26"><span class="lineNum">      26 </span>                :<span class="lineNoCov">          0 : void Server::incomingConnection(qintptr socketDescriptor)</span></a>
+<a name="27"><span class="lineNum">      27 </span>                :            : {</a>
+<a name="28"><span class="lineNum">      28 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     auto *worker = new ServerWorker;</span></a>
+<a name="29"><span class="lineNum">      29 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (!worker-&gt;setSocketDescriptor(socketDescriptor)) {</span></a>
+<a name="30"><span class="lineNum">      30 </span>                :<span class="lineNoCov">          0 :         worker-&gt;deleteLater();</span></a>
+<a name="31"><span class="lineNum">      31 </span>                :<span class="lineNoCov">          0 :         return;</span></a>
+<a name="32"><span class="lineNum">      32 </span>                :            :     }</a>
+<a name="33"><span class="lineNum">      33 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     int threadIdx = m_availableThreads.size();</span></a>
+<a name="34"><span class="lineNum">      34 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (threadIdx &lt; m_idealThreadCount) {</span></a>
+<a name="35"><span class="lineNum">      35 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         m_availableThreads.append(new QThread(this));</span></a>
+<a name="36"><span class="lineNum">      36 </span>                :<span class="lineNoCov">          0 :         m_threadsLoad.append(1);</span></a>
+<a name="37"><span class="lineNum">      37 </span>                :<span class="lineNoCov">          0 :         m_availableThreads.last()-&gt;start();</span></a>
+<a name="38"><span class="lineNum">      38 </span>                :            :     } else {</a>
+<a name="39"><span class="lineNum">      39 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         threadIdx = std::distance(m_threadsLoad.cbegin(), std::min_element(m_threadsLoad.cbegin(), m_threadsLoad.cend()));</span></a>
+<a name="40"><span class="lineNum">      40 </span>                :<span class="lineNoCov">          0 :         ++m_threadsLoad[threadIdx];</span></a>
+<a name="41"><span class="lineNum">      41 </span>                :            :     }</a>
+<a name="42"><span class="lineNum">      42 </span>                :<span class="lineNoCov">          0 :     worker-&gt;moveToThread(m_availableThreads.at(threadIdx));</span></a>
+<a name="43"><span class="lineNum">      43 </span>                :<span class="lineNoCov">          0 :     connect(m_availableThreads.at(threadIdx), &amp;QThread::finished, worker, &amp;QObject::deleteLater);</span></a>
+<a name="44"><span class="lineNum">      44 </span>                :<span class="lineNoCov">          0 :     connect(worker, &amp;ServerWorker::disconnectedFromClient, this, std::bind(&amp;Server::userDisconnected, this, worker, threadIdx));</span></a>
+<a name="45"><span class="lineNum">      45 </span>                :<span class="lineNoCov">          0 :     connect(worker, &amp;ServerWorker::error, this, std::bind(&amp;Server::userError, this, worker));</span></a>
+<a name="46"><span class="lineNum">      46 </span>                :<span class="lineNoCov">          0 :     connect(worker, &amp;ServerWorker::jsonReceived, this, std::bind(&amp;Server::jsonReceived, this, worker, std::placeholders::_1));</span></a>
+<a name="47"><span class="lineNum">      47 </span>                :<span class="lineNoCov">          0 :     connect(this, &amp;Server::stopAllClients, worker, &amp;ServerWorker::disconnectFromClient);</span></a>
+<a name="48"><span class="lineNum">      48 </span>                :<span class="lineNoCov">          0 :     m_clients.append(worker);</span></a>
+<a name="49"><span class="lineNum">      49 </span>                :            : }</a>
+<a name="50"><span class="lineNum">      50 </span>                :            : </a>
+<a name="51"><span class="lineNum">      51 </span>                :<span class="lineNoCov">          0 : void Server::sendJson(ServerWorker *destination, const QJsonObject &amp;message)</span></a>
+<a name="52"><span class="lineNum">      52 </span>                :            : {</a>
+<a name="53"><span class="lineNum">      53 </span>                :            :     Q_ASSERT(destination);</a>
+<a name="54"><span class="lineNum">      54 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     QTimer::singleShot(0, destination, [destination, message] { destination-&gt;sendJson(message); });</span></a>
+<a name="55"><span class="lineNum">      55 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="56"><span class="lineNum">      56 </span>                :            : </a>
+<a name="57"><span class="lineNum">      57 </span>                :<span class="lineNoCov">          0 : void Server::broadcast(const QJsonObject &amp;message, ServerWorker *exclude)</span></a>
+<a name="58"><span class="lineNum">      58 </span>                :            : {</a>
+<a name="59"><span class="lineNum">      59 </span>                :            :     //salji samo drugon klijentu</a>
+<a name="60"><span class="lineNum">      60 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     for (ServerWorker *worker : m_clients) {</span></a>
+<a name="61"><span class="lineNum">      61 </span>                :            :         Q_ASSERT(worker);</a>
+<a name="62"><span class="lineNum">      62 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (worker != exclude){</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :<span class="lineNoCov">          0 :         sendJson(worker, message);</span></a>
+<a name="64"><span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
+<a name="65"><span class="lineNum">      65 </span>                :            :         }</a>
+<a name="66"><span class="lineNum">      66 </span>                :            :     }</a>
+<a name="67"><span class="lineNum">      67 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="68"><span class="lineNum">      68 </span>                :            : </a>
+<a name="69"><span class="lineNum">      69 </span>                :<span class="lineNoCov">          0 : void Server::jsonReceived(ServerWorker *sender, const QJsonObject &amp;json)</span></a>
+<a name="70"><span class="lineNum">      70 </span>                :            : {</a>
+<a name="71"><span class="lineNum">      71 </span>                :            :     Q_ASSERT(sender);</a>
+<a name="72"><span class="lineNum">      72 </span>                :<span class="lineNoCov">          0 :     QJsonObject message = json;</span></a>
+<a name="73"><span class="lineNum">      73 </span>                :            : </a>
+<a name="74"><span class="lineNum">      74 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     broadcast(message, sender);</span></a>
+<a name="75"><span class="lineNum">      75 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="76"><span class="lineNum">      76 </span>                :            : </a>
+<a name="77"><span class="lineNum">      77 </span>                :<span class="lineNoCov">          0 : void Server::userDisconnected(ServerWorker *sender, int threadIdx)</span></a>
+<a name="78"><span class="lineNum">      78 </span>                :            : {</a>
+<a name="79"><span class="lineNum">      79 </span>                :<span class="lineNoCov">          0 :     --m_threadsLoad[threadIdx];</span></a>
+<a name="80"><span class="lineNum">      80 </span>                :<span class="lineNoCov">          0 :     m_clients.removeAll(sender);</span></a>
+<a name="81"><span class="lineNum">      81 </span>                :<span class="lineNoCov">          0 :     sender-&gt;deleteLater();</span></a>
+<a name="82"><span class="lineNum">      82 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="83"><span class="lineNum">      83 </span>                :            : </a>
+<a name="84"><span class="lineNum">      84 </span>                :<span class="lineNoCov">          0 : void Server::userError(ServerWorker *sender)</span></a>
+<a name="85"><span class="lineNum">      85 </span>                :            : {</a>
+<a name="86"><span class="lineNum">      86 </span>                :            :     Q_UNUSED(sender)</a>
+<a name="87"><span class="lineNum">      87 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     emit logMessage(QLatin1String(&quot;Error from &quot;));</span></a>
+<a name="88"><span class="lineNum">      88 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="89"><span class="lineNum">      89 </span>                :            : </a>
+<a name="90"><span class="lineNum">      90 </span>                :<span class="lineNoCov">          0 : void Server::stopServer()</span></a>
+<a name="91"><span class="lineNum">      91 </span>                :            : {</a>
+<a name="92"><span class="lineNum">      92 </span>                :<span class="lineNoCov">          0 :     emit stopAllClients();</span></a>
+<a name="93"><span class="lineNum">      93 </span>                :<span class="lineNoCov">          0 :     close();</span></a>
+<a name="94"><span class="lineNum">      94 </span>                :<span class="lineNoCov">          0 : }</span></a>
+<a name="95"><span class="lineNum">      95 </span>                :            : </a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.14</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
