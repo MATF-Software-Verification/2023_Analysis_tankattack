@@ -1,0 +1,182 @@
+17-tankattack/code/include/Client.hpp:10:1: style: The class 'Client' does not have a constructor although it has private member variables. [noConstructor]
+class Client : public QObject
+^
+17-tankattack/code/src/Client.cpp:71:18: style: Condition 'text=="Space"' is always true [knownConditionTrueFalse]
+    else if(text == "Space")
+                 ^
+17-tankattack/code/src/Client.cpp:85:46: style:inconclusive: Function 'jsonReceived' argument 1 names different: declaration 'doc' definition 'docObj'. [funcArgNamesDifferent]
+void Client::jsonReceived(const QJsonObject &docObj)
+                                             ^
+17-tankattack/code/include/Client.hpp:47:42: note: Function 'jsonReceived' argument 1 names different: declaration 'doc' definition 'docObj'.
+    void jsonReceived(const QJsonObject &doc);
+                                         ^
+17-tankattack/code/src/Client.cpp:85:46: note: Function 'jsonReceived' argument 1 names different: declaration 'doc' definition 'docObj'.
+void Client::jsonReceived(const QJsonObject &docObj)
+                                             ^
+17-tankattack/code/src/Client.cpp:145:30: style:inconclusive: Function 'setTanksX' argument 1 names different: declaration 'pozicija_tenka_x' definition 'TankX'. [funcArgNamesDifferent]
+void Client::setTanksX(float TankX)
+                             ^
+17-tankattack/code/include/Client.hpp:18:26: note: Function 'setTanksX' argument 1 names different: declaration 'pozicija_tenka_x' definition 'TankX'.
+    void setTanksX(float pozicija_tenka_x);
+                         ^
+17-tankattack/code/src/Client.cpp:145:30: note: Function 'setTanksX' argument 1 names different: declaration 'pozicija_tenka_x' definition 'TankX'.
+void Client::setTanksX(float TankX)
+                             ^
+17-tankattack/code/src/Client.cpp:149:30: style:inconclusive: Function 'setTanksY' argument 1 names different: declaration 'pozicija_tenka_y' definition 'TankY'. [funcArgNamesDifferent]
+void Client::setTanksY(float TankY)
+                             ^
+17-tankattack/code/include/Client.hpp:19:26: note: Function 'setTanksY' argument 1 names different: declaration 'pozicija_tenka_y' definition 'TankY'.
+    void setTanksY(float pozicija_tenka_y);
+                         ^
+17-tankattack/code/src/Client.cpp:149:30: note: Function 'setTanksY' argument 1 names different: declaration 'pozicija_tenka_y' definition 'TankY'.
+void Client::setTanksY(float TankY)
+                             ^
+17-tankattack/code/include/Wall.hpp:18:5: style: 'Wall::operator=' should return 'Wall &'. [operatorEq]
+    Wall operator=(const Wall&);
+    ^
+17-tankattack/code/include/Map.hpp:14:5: style: Class 'Map' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    Map(const char * file);
+    ^
+17-tankattack/code/src/Map.cpp:20:27: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+              coordinates.push_back(broj.toInt());
+                          ^
+17-tankattack/code/include/Server.hpp:11:1: style: The class 'Server' does not have a constructor although it has private member variables. [noConstructor]
+class Server : public QTcpServer
+^
+17-tankattack/code/include/ServerWorker.hpp:10:1: style: The class 'ServerWorker' does not have a constructor although it has private member variables. [noConstructor]
+class ServerWorker : public QObject
+^
+17-tankattack/code/src/Server.cpp:69:68: style:inconclusive: Function 'jsonReceived' argument 2 names different: declaration 'doc' definition 'json'. [funcArgNamesDifferent]
+void Server::jsonReceived(ServerWorker *sender, const QJsonObject &json)
+                                                                   ^
+17-tankattack/code/include/Server.hpp:29:64: note: Function 'jsonReceived' argument 2 names different: declaration 'doc' definition 'json'.
+    void jsonReceived(ServerWorker *sender, const QJsonObject &doc);
+                                                               ^
+17-tankattack/code/src/Server.cpp:69:68: note: Function 'jsonReceived' argument 2 names different: declaration 'doc' definition 'json'.
+void Server::jsonReceived(ServerWorker *sender, const QJsonObject &json)
+                                                                   ^
+17-tankattack/code/src/Tank.cpp:36:7: warning: Member variable 'Tank::m_health_bar_tank' is not initialized in the constructor. [uninitMemberVar]
+Tank::Tank(int id,QColor color, float x, float y, Input *input, QColor host, QColor client, bool isMultiPlayer, QString ipAdress)
+      ^
+17-tankattack/code/src/Tank.cpp:36:7: warning: Member variable 'Tank::m_current_health' is not initialized in the constructor. [uninitMemberVar]
+Tank::Tank(int id,QColor color, float x, float y, Input *input, QColor host, QColor client, bool isMultiPlayer, QString ipAdress)
+      ^
+17-tankattack/code/src/Tank.cpp:36:7: warning: Member variable 'Tank::m_num_of_lives' is not initialized in the constructor. [uninitMemberVar]
+Tank::Tank(int id,QColor color, float x, float y, Input *input, QColor host, QColor client, bool isMultiPlayer, QString ipAdress)
+      ^
+17-tankattack/code/src/Tank.cpp:36:7: warning: Member variable 'Tank::m_can_shoot' is not initialized in the constructor. [uninitMemberVar]
+Tank::Tank(int id,QColor color, float x, float y, Input *input, QColor host, QColor client, bool isMultiPlayer, QString ipAdress)
+      ^
+17-tankattack/code/include/Tank.hpp:101:10: style:inconclusive: Member variable 'Tank::m_isMultiPlayer' is in the wrong place in the initializer list. [initializerList]
+    bool m_isMultiPlayer = false;
+         ^
+17-tankattack/code/src/Tank.cpp:37:138: note: Member variable 'Tank::m_isMultiPlayer' is in the wrong place in the initializer list.
+    :m_id(id),m_color(std::move(color)), m_x(x), m_y(y), m_input(input), m_HostColor(std::move(host)), m_ClientColor(std::move(client)), m_isMultiPlayer(isMultiPlayer), m_IpAdress(std::move(ipAdress))
+                                                                                                                                         ^
+17-tankattack/code/include/Tank.hpp:101:10: note: Member variable 'Tank::m_isMultiPlayer' is in the wrong place in the initializer list.
+    bool m_isMultiPlayer = false;
+         ^
+17-tankattack/code/src/Tank.cpp:69:29: style: Local variable 'ipAdress' shadows outer argument [shadowArgument]
+                    QString ipAdress;
+                            ^
+17-tankattack/code/src/Tank.cpp:36:121: note: Shadowed declaration
+Tank::Tank(int id,QColor color, float x, float y, Input *input, QColor host, QColor client, bool isMultiPlayer, QString ipAdress)
+                                                                                                                        ^
+17-tankattack/code/src/Tank.cpp:69:29: note: Shadow variable
+                    QString ipAdress;
+                            ^
+17-tankattack/code/src/Wall.cpp:13:7: warning: Member variable 'Wall::m_x' is not initialized in the constructor. [uninitMemberVar]
+Wall::Wall(const Wall&) {
+      ^
+17-tankattack/code/src/Wall.cpp:13:7: warning: Member variable 'Wall::m_y' is not initialized in the constructor. [uninitMemberVar]
+Wall::Wall(const Wall&) {
+      ^
+17-tankattack/code/src/Wall.cpp:13:7: warning: Member variable 'Wall::m_height' is not initialized in the constructor. [uninitMemberVar]
+Wall::Wall(const Wall&) {
+      ^
+17-tankattack/code/src/Wall.cpp:13:7: warning: Member variable 'Wall::m_width' is not initialized in the constructor. [uninitMemberVar]
+Wall::Wall(const Wall&) {
+      ^
+17-tankattack/code/src/Wall.cpp:16:12: warning: Member variable 'Wall::m_x' is not assigned a value in 'Wall::operator='. [operatorEqVarError]
+auto Wall::operator=(const Wall&) -> Wall {
+           ^
+17-tankattack/code/src/Wall.cpp:16:12: warning: Member variable 'Wall::m_y' is not assigned a value in 'Wall::operator='. [operatorEqVarError]
+auto Wall::operator=(const Wall&) -> Wall {
+           ^
+17-tankattack/code/src/Wall.cpp:16:12: warning: Member variable 'Wall::m_height' is not assigned a value in 'Wall::operator='. [operatorEqVarError]
+auto Wall::operator=(const Wall&) -> Wall {
+           ^
+17-tankattack/code/src/Wall.cpp:16:12: warning: Member variable 'Wall::m_width' is not assigned a value in 'Wall::operator='. [operatorEqVarError]
+auto Wall::operator=(const Wall&) -> Wall {
+           ^
+17-tankattack/code/src/World.cpp:687:5: style: Exception should be caught by reference. [catchExceptionByValue]
+    catch(QString e)
+    ^
+17-tankattack/code/src/Tank.cpp:487:0: style: The function 'GetX' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Tank.cpp:491:0: style: The function 'GetY' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Wall.cpp:62:0: style: The function 'getCoordinates' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Map.cpp:37:0: style: The function 'getNumOfWalls' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/SuperPower.cpp:20:0: style: The function 'getSize' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Client.cpp:154:0: style: The function 'getTankX' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Client.cpp:158:0: style: The function 'getTankY' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Tank.cpp:479:0: style: The function 'getXposition' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Tank.cpp:483:0: style: The function 'getYposition' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Tank.cpp:541:0: style: The function 'get_score' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Server.cpp:26:0: style: The function 'incomingConnection' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Tank.cpp:533:0: style: The function 'increase_health' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Wall.cpp:42:0: style: The function 'isHorizontal' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Client.cpp:34:0: style: The function 'login' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/SuperPower.cpp:41:0: style: The function 'paint' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/World.cpp:424:0: style: The function 'rand_int' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Tank.cpp:553:0: style: The function 'setColors' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/SuperPower.cpp:24:0: style: The function 'setSize' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/SuperPower.cpp:28:0: style: The function 'setType' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Map.cpp:49:0: style: The function 'setWalls' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Tank.cpp:123:0: style: The function 'shape' is never used. [unusedFunction]
+
+^
+17-tankattack/code/src/Server.cpp:90:0: style: The function 'stopServer' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
