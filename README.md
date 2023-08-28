@@ -11,6 +11,8 @@ U repozitorijumu se nalazi skripta ProjectAnalysisReport.pdf koja sadrži detalj
 2. Gcov
 3. Cppcheck
 4. Clangd
+5. Callgrind
+   
 
 # Zaključak:
 Analizom ovog projekta došli smo do zaključka da postoje greške koje bi trebalo ispraviti.
