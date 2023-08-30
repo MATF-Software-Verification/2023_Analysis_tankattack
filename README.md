@@ -8,12 +8,11 @@ U repozitorijumu se nalazi skripta ProjectAnalysisReport.pdf koja sadrži detalj
 
 # Korišćeni alati:
 1. Clang-Tidy i Clazy
-2. Gcov
-3. Cppcheck
-4. Clangd
-5. Callgrind
+2. Cppcheck
+3. Clangd
+4. Callgrind
    
-
+   
 # Zaključak:
 Analizom ovog projekta došli smo do zaključka da postoje greške koje bi trebalo ispraviti.
 Ukazano je na postojanje propusta koji narušavaju čitljivost i održivost koda. Za većinu poruka, koje smo dobili primenom ovih alata, dato je detaljnije objašnjenje, kao i rešenje kako ispraviti greške i upozorenja na koje se poruke odnose.
